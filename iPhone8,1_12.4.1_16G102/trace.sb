@@ -1,0 +1,45 @@
+(version 1)
+(deny default)
+(allow darwin-notification-post)
+(allow file-clone)
+(allow file-read*
+	(require-any (literal "/dev/null")
+(literal "/dev/zero"))
+	(require-any (literal "/dev/urandom")
+(literal "/dev/random"))
+	(literal "/dev/dtracehelper")
+	(require-all
+		(file-mode #o0004)
+		(require-any
+			(subpath "/usr/lib")
+			(subpath "/usr/share")
+			(subpath "/System")
+			(subpath "/private/var/db/dyld"))))
+(allow file-read-metadata
+	(require-any (literal "/etc")
+(literal "/tmp")
+(literal "/private/etc/localtime")
+(literal "/var")))
+(allow file-test-existence)
+(allow file-write*
+	(require-all
+		(file-mode #o0000)
+		(literal "/cores/")))
+(allow file-write-data
+	(require-any (literal "/dev/null")
+(literal "/dev/zero"))
+	(literal "/dev/dtracehelper"))
+(allow ipc-posix-shm-read*
+	(ipc-posix-name "apple.cfprefs."))
+(allow mach-lookup
+	(global-name "com.apple.diagnosticd")
+	(global-name "com.apple.cfprefsd.daemon")
+	(global-name "com.apple.cfprefsd.agent")
+	(global-name "com.apple.logd")
+	(require-any (global-name "com.apple.system.notification_center")
+(global-name "com.apple.system.logger"))
+	(xpc-service-name-regex #".+")
+	(global-name "com.apple.system.DirectoryService.libinfo_v1")
+	(local-name "com.apple.cfprefsd.agent"))
+(allow sysctl-read)
+(allow system-privilege)
