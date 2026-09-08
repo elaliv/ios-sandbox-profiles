@@ -1,0 +1,128 @@
+(version 1)
+(deny default)
+(allow darwin-notification-post)
+(allow dynamic-code-generation)
+(allow file-clone)
+(allow file-link)
+(allow file-test-existence)
+(allow iokit-get-properties)
+(allow lsopen)
+(allow mach-cross-domain-lookup)
+(allow process-info-codesignature)
+(allow process-info-pidinfo)
+(allow socket-ioctl)
+(allow system-privilege)
+(allow user-preference-read
+	(preference-domain "kCFPreferencesAnyApplication")
+	(preference-domain "com.apple.FontServices.FontProviderLoader")
+	(extension "com.apple.security.exception.shared-preference.read-write")
+	(extension "com.apple.security.exception.shared-preference.read-only")
+	(preference-domain "com.apple.Accessibility")
+	(preference-domain "com.apple.hangtracer")
+	(preference-domain "com.apple.AppStore")
+	(preference-domain "com.apple.MobileStore")
+	(preference-domain "com.apple.itunesstored")
+	(preference-domain "com.apple.storeservices.itfe")
+	(require-entitlement "com.apple.itunesstored.private")
+	(require-all
+		(preference-domain "com.apple.demo-settings")
+		(process-attribute 9))
+	(require-all
+		(preference-domain "com.apple.PrototypeTools")
+		(require-any
+			(require-all
+				(preference-domain "com.apple.security")
+				(process-attribute 9))
+			(require-all
+				(preference-domain "com.apple.imessage.bag")
+				(require-any
+					(require-entitlement "com.apple.private.ids.remoteurlconnection")
+					(require-entitlement "com.apple.private.imcore.imremoteurlconnection")))
+			(require-all
+				(preference-domain "com.apple.facetime.bag")
+				(require-any
+					(require-entitlement "com.apple.private.ids.remoteurlconnection")
+					(require-entitlement "com.apple.private.imcore.imremoteurlconnection")))
+			(require-all
+				(preference-domain "com.apple.springboard")
+				(require-entitlement "com.apple.watchlist.private"))
+			(require-all
+				(preference-domain "com.apple.WatchListKit")
+				(require-entitlement "com.apple.watchlist.private"))
+			(require-all
+				(preference-domain "com.apple.AppleMediaServices")
+				(require-entitlement "com.apple.private.applemediaservices"))
+			(require-all
+				(preference-domain "com.apple.AvatarUI.Staryu")
+				(require-entitlement "com.apple.private.avatar.store"))
+			(require-all
+				(preference-domain "com.apple.avfoundation.frecents")
+				(require-entitlement "com.apple.avfoundation.allows-access-to-device-list"))
+			(require-all
+				(preference-domain "com.apple.MobileAsset")
+				(require-entitlement "com.apple.private.assets.accessible-asset-types"))
+			(require-all
+				(preference-domain "com.apple.bulletinboard")
+				(require-entitlement "com.apple.bulletinboard.dataprovider"))
+			(require-all
+				(preference-domain "com.apple.proactive.PersonalizationPortrait")
+				(require-entitlement "com.apple.coreduetd.allow")))))
+(allow managed-preference-read
+	(preference-domain "kCFPreferencesAnyApplication")
+	(extension "com.apple.security.exception.managed-preference.read-only")
+	(preference-domain "com.apple.FontServices.FontProviderLoader")
+	(extension "com.apple.security.exception.shared-preference.read-write")
+	(extension "com.apple.security.exception.shared-preference.read-only")
+	(preference-domain "com.apple.Accessibility")
+	(preference-domain "com.apple.hangtracer")
+	(preference-domain "com.apple.AppStore")
+	(preference-domain "com.apple.MobileStore")
+	(preference-domain "com.apple.itunesstored")
+	(preference-domain "com.apple.storeservices.itfe")
+	(require-entitlement "com.apple.itunesstored.private")
+	(require-all
+		(preference-domain "com.apple.demo-settings")
+		(process-attribute 9))
+	(require-all
+		(preference-domain "com.apple.PrototypeTools")
+		(require-any
+			(require-all
+				(preference-domain "com.apple.security")
+				(process-attribute 9))
+			(require-all
+				(preference-domain "com.apple.imessage.bag")
+				(require-any
+					(require-entitlement "com.apple.private.ids.remoteurlconnection")
+					(require-entitlement "com.apple.private.imcore.imremoteurlconnection")))
+			(require-all
+				(preference-domain "com.apple.facetime.bag")
+				(require-any
+					(require-entitlement "com.apple.private.ids.remoteurlconnection")
+					(require-entitlement "com.apple.private.imcore.imremoteurlconnection")))
+			(require-all
+				(preference-domain "com.apple.springboard")
+				(require-entitlement "com.apple.watchlist.private"))
+			(require-all
+				(preference-domain "com.apple.WatchListKit")
+				(require-entitlement "com.apple.watchlist.private"))
+			(require-all
+				(preference-domain "com.apple.AppleMediaServices")
+				(require-entitlement "com.apple.private.applemediaservices"))
+			(require-all
+				(preference-domain "com.apple.AvatarUI.Staryu")
+				(require-entitlement "com.apple.private.avatar.store"))
+			(require-all
+				(preference-domain "com.apple.avfoundation.frecents")
+				(require-entitlement "com.apple.avfoundation.allows-access-to-device-list"))
+			(require-all
+				(preference-domain "com.apple.MobileAsset")
+				(require-entitlement "com.apple.private.assets.accessible-asset-types"))
+			(require-all
+				(preference-domain "com.apple.bulletinboard")
+				(require-entitlement "com.apple.bulletinboard.dataprovider"))
+			(require-all
+				(preference-domain "com.apple.proactive.PersonalizationPortrait")
+				(require-entitlement "com.apple.coreduetd.allow")))))
+(allow user-preference-write
+	(preference-domain "com.apple.FontServices.FontProviderLoader"))
+(allow syscall-unix)
