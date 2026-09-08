@@ -1,0 +1,6 @@
+(version 1)
+(allow default)
+(deny file-write-setugid)
+(deny network*
+	(local ip "*:*"))
+(deny storage-class-map)
