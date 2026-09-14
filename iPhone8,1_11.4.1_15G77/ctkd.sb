@@ -1,0 +1,196 @@
+(version 1)
+(deny default)
+(allow dynamic-code-generation)
+(allow file-link)
+(allow file-test-existence)
+(allow iokit-get-properties)
+(allow mach-cross-domain-lookup)
+(allow mach-lookup
+	(global-name "com.apple.hangtracerd")
+	(global-name "com.apple.pluginkit.pkd")
+	(global-name "com.apple.ctkd.slot-client")
+	(extension "com.apple.pluginkit.plugin-service")
+	(global-name "com.apple.system.libinfo.muser")
+	(require-any (global-name "com.apple.ctkd.token-client")
+(global-name "com.apple.CoreAuthentication.daemon.libxpc")
+(global-name "com.apple.managedconfiguration.profiled.public"))
+	(34 a18d 9e84 9d07)
+	(local-name "com.apple.cfprefsd.agent")
+	(global-name "com.apple.diagnosticd")
+	(global-name "com.apple.distributed_notifications@1v3")
+	(global-name "com.apple.system.notification_center")
+	(global-name "com.apple.system.logger")
+	(require-any (global-name "com.apple.assertiond.processassertionconnection")
+(global-name "com.apple.coreservices.lsuseractivitymanager.xpc")
+(global-name "com.apple.lsd.icons"))
+	(require-any (global-name "com.apple.lsd.advertisingidentifiers")
+(global-name "com.apple.lsd.openurl"))
+	(global-name "com.apple.logd")
+	(require-any (global-name "com.apple.appsupport.cplogd")
+(global-name "com.apple.dyld.closured"))
+	(global-name "com.apple.logd.events")
+	(global-name "com.apple.lsd.mapdb")
+	(require-any (global-name "com.apple.lsd.open")
+(global-name "com.apple.lsd")
+(global-name "com.apple.duetknowledged.activity"))
+	(global-name "com.apple.tccd")
+	(global-name "com.apple.aggregated")
+	(global-name "com.apple.containermanagerd")
+	(global-name "com.apple.mobilegestalt.xpc")
+	(require-any (global-name "com.apple.cfprefsd.daemon")
+(global-name "com.apple.cfprefsd.agent"))
+	(global-name "com.apple.biometrickitd")
+	(global-name "com.apple.pearld")
+	(require-entitlement "com.apple.private.assets.accessible-asset-types")
+	(require-any (global-name "com.apple.mobileassetd")
+(global-name "com.apple.mobileassetd.v2"))
+	(require-entitlement "com.apple.private.bmk.allow")
+	(require-all
+		(process-attribute 4)
+		(require-any
+			(global-name "com.apple.ReportCrash.SimulateCrash")
+			(global-name "com.apple.Honeybee.event-notify")
+			(global-name "com.apple.analyticsd")))
+	(require-all
+		(local-name-regex #".+")
+		(extension "com.apple.security.exception.mach-lookup.local-name"))
+	(require-all
+		(extension "com.apple.security.exception.mach-lookup.global-name")
+		(global-name-regex #".+"))
+	(require-all
+		(global-name "com.apple.securityd.ckks")
+		(require-entitlement "com.apple.private.ckks"))
+	(require-all
+		(global-name "com.apple.symptom_analytics")
+		(require-any
+			(require-entitlement "com.apple.symptoms.NetworkOfInterest")
+			(require-entitlement "com.apple.symptom_analytics.configure")
+			(require-entitlement "com.apple.symptom_analytics.healthcheck")
+			(require-entitlement "com.apple.symptom_analytics.query")
+			(require-entitlement "com.apple.symptom_analytics.refresh")
+			(require-entitlement "com.apple.symptom_analytics.reset")
+			(require-entitlement "com.apple.symptom_analytics.setsnapshot")
+			(require-entitlement "com.apple.symptom_analytics.setwatchpoint")
+			(require-entitlement "com.apple.symptom_analytics.train")))
+	(require-all
+		(global-name "com.apple.appstored.xpc.request")
+		(require-any
+			(require-entitlement "com.apple.appstored.install-system-apps")
+			(require-entitlement "com.apple.appstored.install-apps")
+			(require-all
+				(require-any (global-name "com.apple.appstored.xpc.jobmanager")
+(global-name "com.apple.appstored.xpc.request"))
+				(require-entitlement "com.apple.itunesstored.private"))
+			(require-all
+				(global-name "com.apple.appstored.xpc.updates")
+				(require-entitlement "com.apple.itunesstored.private"))))
+	(require-all
+		(global-name "com.apple.tailspind")
+		(require-any
+			(require-entitlement "com.apple.tailspin.config-apply")
+			(require-entitlement "com.apple.tailspin.dump-output")))
+	(require-all
+		(global-name "com.apple.rtcreportingd")
+		(require-entitlement "com.apple.private.rtcreportingd"))
+	(require-all
+		(global-name "com.apple.coreduetd")
+		(require-any
+			(require-entitlement "com.apple.coreduetd.allow")
+			(require-all
+				(global-name "com.apple.coreduetd.people")
+				(require-entitlement "com.apple.coreduetd.people"))))
+	(require-all
+		(global-name "com.apple.itunesstored.xpc")
+		(require-entitlement "com.apple.itunesstored.private"))
+	(require-all
+		(global-name "com.apple.nfcd.service.corenfc")
+		(require-entitlement "com.apple.developer.nfc.readersession.formats"))
+	(require-all
+		(global-name "com.apple.coreduetd.people")
+		(require-any
+			(require-entitlement "com.apple.coreduetd.allow")
+			(require-all
+				(global-name "com.apple.coreduetd.people")
+				(require-entitlement "com.apple.coreduetd.people"))))
+	(require-all
+		(global-name "com.apple.suggestd.PersonalizationPortrait.DeletionTracking")
+		(require-any
+			(require-entitlement "com.apple.coreduetd.allow")
+			(require-all
+				(global-name "com.apple.coreduetd.people")
+				(require-entitlement "com.apple.coreduetd.people"))))
+	(require-all
+		(global-name "com.apple.ibooks.BLService")
+		(require-entitlement "com.apple.itunesstored.private"))
+	(require-all
+		(global-name "com.apple.corecaptured")
+		(require-entitlement "com.apple.corecapture.manager-access"))
+	(require-all
+		(global-name "com.apple.symptom_diagnostics")
+		(require-entitlement "com.apple.symptom_diagnostics.report"))
+	(require-all
+		(global-name "com.apple.adid")
+		(require-entitlement "adi-client"))
+	(require-all
+		(global-name "com.apple.absd")
+		(require-any
+			(require-entitlement "abs-client")
+			(require-entitlement "absinthe-client")))
+	(require-all
+		(global-name "com.apple.absinthed")
+		(require-entitlement "absinthe-client"))
+	(require-all
+		(global-name "com.apple.contactsd.launch-services-proxy")
+		(require-entitlement "com.apple.private.contactsui"))
+	(require-all
+		(global-name "com.apple.dprivacyd")
+		(require-entitlement "com.apple.private.dprivacyd.allow"))
+	(require-all
+		(global-name "com.apple.telephonyutilities.callservicesdaemon.callprovidermanager")
+		(require-entitlement "com.apple.telephonyutilities.callservicesd"))
+	(require-all
+		(global-name "com.apple.logd.admin")
+		(require-any
+			(require-entitlement "com.apple.private.logging.diagnostic")
+			(require-entitlement "com.apple.diagnosticd.diagnostic")))
+	(require-all
+		(global-name "com.apple.springboard.statusbarservices")
+		(require-entitlement "com.apple.springboard.statusbarstyleoverrides"))
+	(require-all
+		(global-name "com.apple.passd.trusted-device-enrollment-info-provider")
+		(require-entitlement "com.apple.private.passkit.trusted-device-enrollment-info"))
+	(require-all
+		(global-name "com.apple.bulletinboard.dataproviderconnection")
+		(require-entitlement "com.apple.bulletinboard.dataprovider"))
+	(require-all
+		(global-name "com.apple.appstored.xpc.updates")
+		(require-any
+			(require-entitlement "com.apple.itunesstored.private")
+			(require-entitlement "com.apple.appstored.update-apps")))
+	(require-all
+		(require-any (global-name "com.apple.appstored.xpc.jobmanager")
+(global-name "com.apple.appstored.xpc.request"))
+		(require-any
+			(require-entitlement "com.apple.appstored.install-apps")
+			(require-all
+				(require-any (global-name "com.apple.appstored.xpc.jobmanager")
+(global-name "com.apple.appstored.xpc.request"))
+				(require-entitlement "com.apple.itunesstored.private"))
+			(require-all
+				(global-name "com.apple.appstored.xpc.updates")
+				(require-entitlement "com.apple.itunesstored.private")))))
+(allow nvram*)
+(allow nvram-delete)
+(allow nvram-get)
+(allow nvram-set)
+(allow process-info*)
+(allow process-info-codesignature)
+(allow process-info-dirtycontrol)
+(allow process-info-listpids)
+(allow process-info-rusage)
+(allow process-info-pidinfo)
+(allow process-info-pidfdinfo)
+(allow process-info-pidfileportinfo)
+(allow process-info-setcontrol)
+(allow socket-ioctl)
+(allow system-privilege)
