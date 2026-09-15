@@ -46,11 +46,35 @@ Not yet merged into `master`; each row is committed on its own branch in this fo
 
 Every profile above was reparsed as SBPL after extraction (balanced parentheses, no leftover `b'...'` byte-string artifacts) before being committed.
 
+### iOS 11 – 13 (depth extension — Phase 2)
+
+Two more sub-versions per major (first public release, plus a build fixing a notable jailbreak-relevant kernel CVE) and two more device models per already-covered version (different Touch ID/Face ID chip generations), on top of the Phase 1 row above. Not yet merged into `master`; each row is its own branch/PR in this fork.
+
+| Device | Version | Build | # | Branch | PR |
+|---|---|---|---|---|---|
+| iPhone7,2 | 11.0 | 15A372 | 171 | `add-iphone7-2-11.0-15A372` | [#5](https://github.com/malus-security/ios-sandbox-profiles/pull/5) |
+| iPhone7,2 | 11.2 | 15C114 | 173 | `add-iphone7-2-11.2-15C114` | [#6](https://github.com/malus-security/ios-sandbox-profiles/pull/6) |
+| iPhone8,1 | 11.4.1 | 15G77 | 177 | `add-iphone8-1-11.4.1-15G77` | [#12](https://github.com/malus-security/ios-sandbox-profiles/pull/12) |
+| iPhone10,3 | 11.4.1 | 15G77 | 177 | `add-iphone10-3-11.4.1-15G77` | [#13](https://github.com/malus-security/ios-sandbox-profiles/pull/13) |
+| iPhone8,1 | 12.0 | 16A366 | 191 | `add-iphone8-1-12.0-16A366` | [#7](https://github.com/malus-security/ios-sandbox-profiles/pull/7) |
+| iPhone8,1 | 12.1.3 | 16D39 | 193 | `add-iphone8-1-12.1.3-16D39` | [#8](https://github.com/malus-security/ios-sandbox-profiles/pull/8) |
+| iPhone9,1 | 12.4.1 | 16G102 | 193 | `add-iphone9-1-12.4.1-16G102` | [#14](https://github.com/malus-security/ios-sandbox-profiles/pull/14) |
+| iPhone10,3 | 12.4.1 | 16G102 | 193 | `add-iphone10-3-12.4.1-16G102` | [#15](https://github.com/malus-security/ios-sandbox-profiles/pull/15) |
+| iPhone8,1 | 13.0 | 17A577 | 218 | `add-iphone8-1-13.0-17A577` | [#9](https://github.com/malus-security/ios-sandbox-profiles/pull/9) |
+| iPhone8,1 | 13.5.1 | 17F80 | 226 | `add-iphone8-1-13.5.1-17F80` | [#10](https://github.com/malus-security/ios-sandbox-profiles/pull/10) |
+| iPhone9,1 | 13.7 | 17H35 | 226 | `add-iphone9-1-13.7-17H35` | [#16](https://github.com/malus-security/ios-sandbox-profiles/pull/16) |
+
+No profile-content differences from hardware generation were found on any repeated version (same `#` count and clean reparse as the Phase 1 device) — the only variable that has mattered so far is OS build, not chip.
+
+Same reparse validation as Phase 1 was applied to every row above.
+
+**iOS 13 Phase 2 is otherwise complete except one cell**: a second additional device for 13.7/17H35 (Face ID, A11+) could not be extracted. `iPhone7,2` doesn't support iOS 13 at all, so iPhone10,3 (A11) and then iPhone11,8 (A12) were tried instead; both have a kernelcache with all PRELINK segments empty (kexts already linked into `__TEXT_EXEC`, a "merged" kernelcache layout), which `joker` cannot extract from. This affects every Face ID/A11+ device tested on this specific build, not one device in particular, and is the same class of problem as the iOS 14 blocker below — it needs an extended `joker` or a purpose-built extractor for the merged layout, not another device. Tracked as backlog, not pursued further for now.
+
 ### Still open
 
 - iOS 14: extraction is blocked — the sandbox kext's profile-bundle format changed and neither `ipsw` nor upstream SandBlaster parses it yet.
 - iOS 15–18: not started.
-- Additional sub-versions and device models per major version (Phase 2) are tracked separately, not in this table.
+- Second additional device for iOS 13.7/17H35 Phase 2 (see above) — blocked on the same "merged" kernelcache issue as iOS 14.
 
 ## Methodology
 
